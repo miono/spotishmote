@@ -87,7 +87,7 @@ case $1 in
 		exit 0
 	;;
 	spotify*)
-	uri_open $1
+		uri_open $1
 	;;
 	info|i)
 		song_info
