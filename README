@@ -1,6 +1,8 @@
-spotishmote.sh v0.1
+spotishmote.sh v0.2
 
 Spotishmote is a simple bash-script that lets you control the Spotify-client that runs native under Linux. dbus-send must be available on the system for the script to function.
+
+For the option x to work, you need to have xclip installed
 
 It's handy to use in conjunction with keyboard shortcuts.
 

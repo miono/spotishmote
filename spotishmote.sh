@@ -8,7 +8,7 @@
 # ----------------------------------------------------------------------------
 # spotishmote.sh written by Markus Nilsson, miono@IRCnet
 # Bugs, Requests etc: markus.nilsson [AltGr+2] gmail.com
-# Version 0.1
+# Version 0.2
 
 # Change these variables if it's not working for you. (Use mdbus2 to find out your values)
 DEST='org.mpris.MediaPlayer2.spotify'
@@ -92,6 +92,18 @@ case $1 in
 	info|i)
 		song_info
 		exit 0
+	;;
+	x)
+		ONE=$(xclip -o | head -n1 | sed -re 's#(http://open\.|\.com)##g;s#/#:#g')
+		TWO=$(xclip -o -selection clipboard | head -n1 | sed -re 's#(http://open\.|\.com)##g;s#/#:#g')
+
+		if [[ $ONE == spotify:* ]]; then
+			uri_open $ONE	
+		elif [[ $TWO == spotify:* ]]; then
+			uri_open $TWO	
+		fi
+
+		exit 1
 	;;
 	help|h|*)
 		echo 'Usage: spotishmote <command/uri>
